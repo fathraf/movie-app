@@ -1,0 +1,166 @@
+	---
+		const movies = [
+		{
+			title: "Nadodikkattu",
+			year: 1987,
+			genre: "Satirical comedy",
+			image: "/images/nadodikkattu.jpg",
+			youtubeUrl: "https://youtu.be/HsIAZ7AlaQo?si=Rky15_lKoPVwcFL6"
+		},
+		{
+			title: "Vinodayathra",
+			year: 2007,
+			genre: "Drama",
+			image: "/images/vinodayatra.jpg",
+			youtubeUrl: "https://youtu.be/rXA8bWoM5LM?si=HN965wc6Q0V1nWDR"
+		},
+		{
+			title: "Chandralekha",
+			year: 1997,
+			genre: "Comedy/ Drama",
+			image: "/images/chandralekha.jpeg",
+			youtubeUrl: "https://youtu.be/hQt22Mm-huU?si=qVshvarCqnPeIxPZ"
+		},
+		{
+			title: "Mithunam",
+			year: 1993,
+			genre: "Comedy/ Drama",
+			image: "/images/mithunam.jpeg",
+			youtubeUrl: "https://youtu.be/QlwKwes1qIs?si=MFdeqM6JLdpK4qxy"
+		},
+		{
+			title: "Megham",
+			year: 1999,
+			genre: "Comedy",
+			image: "/images/megham.jpeg",
+			youtubeUrl: "https://youtu.be/ocISEYOb9KY?si=a1lOOlhSUKcjW5FV"
+		},
+		{
+			title: "Memories",
+			year: 2013,
+			genre: "Crime/ Thriller",
+			image: "/images/memories.jpeg",
+			youtubeUrl: "https://youtu.be/SzwStt19vtw?si=G7q7LmcBMICXPUZr"
+		},
+		{
+			title: "Joseph",
+			year: 2018,
+			genre: "Thriller",
+			image: "/images/joseph.jpeg",
+			youtubeUrl: "https://youtu.be/Zhrau8ZfEr0?si=AfK49vw1EQhJ5xpb"
+		},
+		{
+			title: "Big B",
+			year: 2007,
+			genre: "Action/ Thriller",
+			image: "/images/BigB.jpeg",
+			youtubeUrl: "https://youtu.be/0OpBijUbrgA?si=3-aqyAUopX3dFVvE"
+		},
+		{
+			title: "Drishyam",
+			year: 2013,
+			genre: "Crime/ Thriller",
+			image: "/images/drishyam.jpeg",
+			youtubeUrl: "https://youtu.be/ofI2JVD0UQk?si=eWdkqt9sTVywWqA2"
+		},
+		{
+			title: "Ustad Hotel",
+			year: 2012,
+			genre: "Drama",
+			image: "/images/ustad-hotel.jpeg",
+			youtubeUrl: "https://youtu.be/jAAAzGENXSg?si=RjHt15ktKQAjiI1C"
+		},
+		{
+			title: "Bangalore Days",
+			year: 2014,
+			genre: "Drama",
+			image: "/images/bangalore-days.jpeg",
+			youtubeUrl: "https://youtu.be/L8G1hYTBSoc?si=CCDVk5X2pH6-L7nt"
+		},
+		{
+			title: "Thattathin Marayathu",
+			year: 2012,
+			genre: "Romance/ Comedy",
+			image: "/images/thattathin-marayath.jpeg",
+			youtubeUrl: "https://youtu.be/BNVAgg0zltM?si=YvbGM3QGTdOJMI8v"
+		},
+		{
+			title: "Kumbalangi Nights",
+			year: 2019,
+			genre: "Drama",
+			image: "/images/Kumbalangi-nights.jpeg",
+			youtubeUrl: "https://youtu.be/bNyKd0PUx04?si=hsqXJ9UBkq20WBLN"
+		},
+		{
+			title: "Spirit",
+			year: 2012,
+			genre: "Drama",
+			image: "/images/spirit.jpeg",
+			youtubeUrl: "https://youtu.be/qnumRvim-sA?si=ZZK4aJUmn23-RMI5"
+		},
+		{
+			title: "Classmates",
+			year: 2006,
+			genre: "Mystery/ Thriller",
+			image: "/images/classmates.jpeg",
+			youtubeUrl: "https://youtu.be/xuQOJtrkiZU?si=yhwEQ1UcetKKGfRa"
+		},
+	];
+	---
+
+	<html lang="en">
+		<head>
+			<meta charset="utf-8" />
+			<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+			<meta name="viewport" content="width=device-width" />
+			<meta name="generator" content={Astro.generator} />
+			<link rel="stylesheet" href="/styles/global.css">
+
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+			<title>YouTube Movies Collections</title>
+		</head>
+		<body>
+			<header class="header">
+				<h1 class="header__title">YouTube Movies</h1>
+				<div class = "header__search">
+					<input type="search" class="header__search-input" id="searchInput" placeholder="Search movies...">
+					<span class="header__search-icon material-symbols-outlined">search</span>
+				</div>
+			</header>
+
+			<main class="movies">
+				<div class="movies__grid">
+					{movies.map((movie) => (
+						<a
+							href={movie.youtubeUrl}
+							class="movies__link"
+							data-title={movie.title.toLowerCase()}>
+							<div class="movies__card">
+								<div class="movies__image-container">
+									<img
+										class="movies__image"
+										src={movie.image}
+										alt={movie.title}
+									/>
+									<div class="movies__overlay"></div>
+								</div>
+							</div>
+
+							<div class="movies__info">
+								<h2 class="movies__name">{movie.title}</h2>
+								<p class="movies__year">
+									{movie.year} • {movie.genre}
+								</p>
+							</div>
+						</a>
+					))}			
+
+				</div>
+
+				<p class="no-results" style="display: none;">No movies found!</p>
+			</main>
+
+			<script src="/scripts/search.js" type="module"></script>
+
+	</body>
+</html>
