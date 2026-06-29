@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
   movieLinks.forEach((link) => {
     const title = link.querySelector('.movies__name').textContent.toLowerCase();
-    const year  = link.querySelector('.movies__year').textContent.toLowerCase();
 
     const genre = link.querySelector('.movies__year').textContent
     .split("•")[1]
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       found = true
     }else if( genre.includes(searchValue)){
       link.style.display = "";
+      found = true
     }else{
       link.style.display = "none"
     }

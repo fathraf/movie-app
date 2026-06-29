@@ -1,0 +1,30 @@
+---
+import type { Movie } from '../data/movies';
+
+export interface Props {
+  movie: Movie;
+}
+
+const { movie } = Astro.props;
+---
+
+<a href={movie.youtubeUrl} class="movies__link" data-title={movie.title.toLowerCase()}>
+  <div class="movies__card">
+    <div class="movies__image-container">
+      <img
+        class="movies__image"
+        src={movie.image}
+        alt={movie.title}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="movies__info">
+    <h2 class="movies__name">{movie.title}</h2>
+    <p class="movies__year">
+      {movie.year} &bull; {movie.genre}
+    </p>
+  </div>
+</a>
